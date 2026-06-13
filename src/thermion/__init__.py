@@ -48,6 +48,10 @@ Paper 347  Spiders/Spectra  doi:10.5281/zenodo.20458996
 Paper 348  Spiders/Nuclei   doi:10.5281/zenodo.20490046
 Paper 349  Origami Calculus doi:10.5281/zenodo.20474914
 Paper 325  Topological HE   doi:10.5281/zenodo.20400638
+Paper 410  Spin Foams/LQG   doi:10.5281/zenodo.20680634
+Paper 411  Pulse Sequences  doi:10.5281/zenodo.20680609
+Paper 412  Typed DSL        doi:10.5281/zenodo.20681513
+Paper 413  Molecular Mach.  doi:10.5281/zenodo.20682101
 """
 
 from thermion.core.opcodes import (
@@ -61,9 +65,49 @@ from thermion.core.opcodes import (
     verify_pentagon,
 )
 
-__version__ = "0.1.0"
+# G₂ representation theory (Papers 410/411, x410a/b)
+from thermion.core.g2 import (
+    g2_dim,
+    g2_casimir,
+    g2_area_quantum,
+    g2_irrep_table,
+    fano_automorphisms,
+    triality_automorphisms,
+    canonical_triality,
+    g2_weyl_group,
+    weyl_element_order,
+    barbero_immirzi_su2,
+    barbero_immirzi_g2,
+    FANO_LINES,
+)
+
+# Typed ISA DSL (Paper 412)
+from thermion.core.typed import (
+    Rep,
+    Wire,
+    AssocWire,
+    FullWire,
+    ISACircuit,
+    frobenius_schur,
+    is_assoc_wire,
+    pcl_wire,
+    pcl_flow,
+)
+
+__version__ = "0.2.0"
 __author__ = "Ian R. C. Buckley"
 __all__ = [
+    # Origami ISA opcodes
     "flip", "flop", "split", "splat", "twist",
     "twist_eigenvalue", "wigner3j", "verify_pentagon",
+    # G₂ representation theory
+    "g2_dim", "g2_casimir", "g2_area_quantum", "g2_irrep_table",
+    "fano_automorphisms", "triality_automorphisms", "canonical_triality",
+    "g2_weyl_group", "weyl_element_order",
+    "barbero_immirzi_su2", "barbero_immirzi_g2",
+    "FANO_LINES",
+    # Typed ISA DSL
+    "Rep", "Wire", "AssocWire", "FullWire", "ISACircuit",
+    "frobenius_schur", "is_assoc_wire",
+    "pcl_wire", "pcl_flow",
 ]
